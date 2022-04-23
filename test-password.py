@@ -15,3 +15,5 @@ class TestPassword(unittest.TestCase):
         print('teardown')
 
       
+if __name__=='__main__':
+    unittest.main()
