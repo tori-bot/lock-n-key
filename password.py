@@ -6,3 +6,10 @@ class User:
         self.email=email
         self.phone_number=phone_number
         
+class Credentials:
+    def __init__(self,account,username,email,password):
+        self.account=account
+        self.username=username
+        self.email=email
+        self.password=password
+        
