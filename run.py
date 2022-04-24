@@ -19,5 +19,10 @@ def create_account_credential(account,username,email,password):
 
 def save_account_credential(credential):
     #save credential
-    credential.save_credentials(credential)
+    credential.save_credentials()
 
+def del_credential(credential):
+    #delete credential
+    credential.delete_credential()
+
+    
