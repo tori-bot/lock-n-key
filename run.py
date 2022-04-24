@@ -6,50 +6,52 @@ import random
 import string
 
 def create_user(fname,lname,username,password,email,phone_number):
-    #function to register new user
+    '''function to register new user'''
     new_user=User(fname,lname,username,password,email,phone_number)
     return new_user
 
 def save_user(user):
-    #save user account
+    '''save user account'''
     user.register_user()
 
 def user_exist_login(username,password):
-    #find user by password so they can login
+    '''find user by password so they can login'''
     return User.user_exist(username,password)
 
 def create_account_credential(account,username,email,password):
-    #function to create new credentials object
+    '''function to create new credentials object'''
     new_credential=Credentials(account,username,email,password)
     return new_credential
 
 def save_account_credential(credential):
-    #save credential
+    '''save credential'''
     credential.save_credential()
 
 def del_credential(credential):
-    #delete credential
+    '''delete credential'''
     credential.delete_credential()
 
 def find_credential(account):
-    #search for credential using account name
+    '''search for credential using account name'''
     return Credentials.find_by_account(account)  
 
 def existing_credential(account):
-    #check if a credential exists 
+    '''check if a credential exists'''
     return Credentials.credential_exists(account)
 
 def displays_credentials():
-    #returns all saved credentials
+    '''returns all saved credentials'''
     return Credentials.display_credentials()
 
 def tocopy_password(account):
-    #copy password to clipboard
+    '''copy password to clipboard'''
     return Credentials.copy_password(account)
 
-#MAIN function
+
 def main():
+    '''MAIN function'''
     def log_in():
+        '''main function that runs after login'''
         if user_exist_login(user_name,passwrd):
             print(f'Login successful! Welcome {user_name} ')
             print('-'*20)
