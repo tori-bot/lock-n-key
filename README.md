@@ -6,6 +6,7 @@ A python application that stores user's passwords securely. A user needs only to
 # Language
 Python 
   * random module
+  * string module
   * unittest module
   * sys module
 
