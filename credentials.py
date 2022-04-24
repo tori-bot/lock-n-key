@@ -10,3 +10,7 @@ class Credentials:
     def save_credential(self):
         #save credential objects to credentials list
         Credentials.credentials_list.append(self)
+
+    def delete_credential(self):
+        #delete credential from list
+        Credentials.credentials_list.remove(self)
