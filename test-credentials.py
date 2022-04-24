@@ -33,6 +33,17 @@ class TestCredentials(unittest.TestCase):
         
         self.assertEqual(len(Credentials.credentials_list),2)
 
+    def test_delete_credential(self):
+        #test if credential can be removed rom list
+        self.new_credential.save_credential()
+        test_credential=Credentials('instagram','joyous-cat','joy@cat.com','mnbvcxz')
+        test_credential.save_credential()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credentials.credentials_list),1)
+
+        
+
 
 
 
