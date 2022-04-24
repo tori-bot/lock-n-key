@@ -1,3 +1,4 @@
+import pyperclip
 class Credentials:
     #class that generates new instances of credentials
     credentials_list=[] #empty credentials list
@@ -30,4 +31,15 @@ class Credentials:
             if credential.account==account:
                 return True
         return False
+
+    @classmethod
+    def display_credentials(cls):
+        #returns all credentials in the list
+        return cls.credentials_list
+
+    @classmethod
+    def copy_password(cls,account):
+        #copy password to clipboard using pyperclip
+        account_found=Credentials.find_by_account(account)
+        pyperclip.copy(account_found.password)
 
