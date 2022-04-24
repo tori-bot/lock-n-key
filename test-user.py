@@ -1,3 +1,4 @@
+from curses.ascii import US
 import unittest
 from user import User
 
@@ -18,6 +19,13 @@ class TestPassword(unittest.TestCase):
         self.assertEqual(self.new_user.password,'qwerty')
         self.assertEqual(self.new_user.email,'james@kamau.com')
         self.assertEqual(self.new_user.phone_number,'0711223344')
+
+    def test_register_user(self):
+        #test if user is saved in list
+        self.new_user.register_user()
+        self.assertEqual(len(User.users_list),1)
+        
+
 
       
 if __name__=='__main__':
