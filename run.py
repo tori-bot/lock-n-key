@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.9
 from user import User
 from credentials import Credentials
 import random
@@ -37,4 +38,8 @@ def displays_credentials():
     #returns all saved credentials
     return Credentials.display_credentials()
 
-    
+def tocopy_password(account):
+    #copy password to clipboard
+    return Credentials.copy_password(account)
+
+  
