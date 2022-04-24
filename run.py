@@ -181,7 +181,9 @@ def main():
                 else:
                     print('Credential not found.')
 
-            elif
+            elif short_code=='ex':
+                print(f'Bye {user_name}... ')
+                break
 
 
 
