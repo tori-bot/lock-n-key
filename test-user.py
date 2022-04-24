@@ -31,11 +31,8 @@ class TestPassword(unittest.TestCase):
         test_user=User('joy','cat','kitcat','mnbvcxz','joy@cat.com','0712345678')
         test_user.register_user()
 
-        user_exists=User.user_exist('mnbvcxz')
+        user_exists=User.user_exist('kitcat','mnbvcxz')
         self.assertTrue(user_exists)
-
-
-
 
       
 if __name__=='__main__':

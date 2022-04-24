@@ -14,14 +14,18 @@ class User:
     def register_user(self):
         #save user in user list
         User.users_list.append(self)
+        
 
     @classmethod
-    def user_login(cls,password):
+    def user_exist(cls,username,password):
         #check if user is registered so they can login
         for user in cls.users_list:
-            if user.password==password:
+            if user.username==username and user.password==password:
                 return True
         return False
+
+    
+
 
 
 

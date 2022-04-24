@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.9
+import sys
 from user import User
 from credentials import Credentials
 import random
@@ -11,7 +12,7 @@ def create_user(fname,lname,username,password,email,phone_number):
 
 def save_user(user):
     #save user account
-    user.register_user(user)
+    user.register_user()
 
 def user_exist_login(username,password):
     #find user by password so they can login
@@ -48,49 +49,11 @@ def tocopy_password(account):
 
 #MAIN function
 def main():
-    print('Hello! Welcome to Lock-n-Key. \n Do you have an account?  enter y or n')
-    have_account=input().lower()
-
-    if have_account=='n':
-        print('New Account')
-        print('-' *10)
-
-        print('First name...')
-        f_name=input()
-
-        print('Last name...')
-        l_name=input()
-
-        print('Username...')
-        user_name=input()
-
-        print('Email...')
-        e_address=input()
-
-        print('Phone number...')
-        p_number=input()
-
-        print('Password...')
-        passwrd=input() 
-
-        save_user(create_user(f_name,l_name,user_name,passwrd,e_address,p_number))
-
-        print('\n')
-
-    elif have_account=='y':
-        print('Please enter your username and password')
-        print('-'*10)
-        print('Username...')
-        user_name=input()
-        print('\n')
-        print('Password...')
-        passwrd=input()
-        print('\n')
-
+    def log_in():
         if user_exist_login(user_name,passwrd):
             print(f'Login successful! Welcome {user_name} ')
             print('-'*20)
-
+            
             print('Please use these short-codes: ac -add new credential, fc - find credential by account, dc -display all saved credentials, del -delete a credential, cp -copy password to email, ex -exit' )
             
             short_code=input().lower()
@@ -183,18 +146,67 @@ def main():
 
             elif short_code=='ex':
                 print(f'Bye {user_name}... ')
-                break
+                sys.exit()
+            
 
-
-
-
-
-
+            else:
+                print('I did not get that. Please use the short codes.')
 
         else:
             print('we cannot find your account. Please create a new user account')
+            sys.exit()
 
 
+    print('Hello! Welcome to Lock-n-Key. \n Do you have an account?  enter y or n')
+    have_account=input().lower()
+
+    if have_account=='n':
+        print('New Account')
+        print('-' *10)
+
+        print('First name...')
+        f_name=input()
+
+        print('Last name...')
+        l_name=input()
+
+        print('Username...')
+        user_name=input()
+
+        print('Email...')
+        e_address=input()
+
+        print('Phone number...')
+        p_number=input()
+
+        print('Password...')
+        passwrd=input() 
+
+        save_user(create_user(f_name,l_name,user_name,passwrd,e_address,p_number))
+
+        print('\n')
+        print('User created successfully')
+        while True:
+            log_in()
+
+    elif have_account=='y':
+        print('Please enter your username and password')
+        print('-'*10)
+        print('Username...')
+        user_name=input()
+        print('\n')
+        print('Password...')
+        passwrd=input()
+        print('\n')
+
+        while True:
+            log_in()   
+
+    else:
+        print('Please confirm if you have an account or not')
+
+
+    
            
 if __name__=='__main__':
     main()
