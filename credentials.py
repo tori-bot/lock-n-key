@@ -14,3 +14,11 @@ class Credentials:
     def delete_credential(self):
         #delete credential from list
         Credentials.credentials_list.remove(self)
+
+    
+    @classmethod
+    def find_by_account(cls,account):
+        #find credential by account from list
+        for credential in cls.credentials_list:
+            if credential.account==account:
+                return credential
