@@ -24,7 +24,17 @@ class TestPassword(unittest.TestCase):
         #test if user is saved in list
         self.new_user.register_user()
         self.assertEqual(len(User.users_list),1)
-        
+
+    def test_user_exist(self):
+        #check if user exists in users list
+        self.new_user.register_user()
+        test_user=User('joy','cat','kitcat','mnbvcxz','joy@cat.com','0712345678')
+        test_user.register_user()
+
+        user_exists=User.user_exist('mnbvcxz')
+        self.assertTrue(user_exists)
+
+
 
 
       
