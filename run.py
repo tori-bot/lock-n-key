@@ -156,7 +156,20 @@ def main():
                 else:
                     print('The account credential does not exist')
 
+            elif short_code=='dc':
+                if displays_credentials():
+                    print('Here is a list of your saved credentials.')
+                    print('\n')
+
+                    for credential in displays_credentials():
+                        print(f'Account: {credential.account} \n Username: {credential.username}\n Password: {credential.password} ')
+                        print('\n')
+
+                else:
+                    print('You dont seem to have any credentials saved.')
+
             elif
+
 
 
 
