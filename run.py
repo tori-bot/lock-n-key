@@ -4,14 +4,18 @@ from credentials import Credentials
 import random
 import string
 
-def register_user(fname,lname,username,password,email,phone_number):
+def create_user(fname,lname,username,password,email,phone_number):
     #function to register new user
     new_user=User(fname,lname,username,password,email,phone_number)
     return new_user
 
-def user_exist_login(password):
+def save_user(user):
+    #save user account
+    user.register_user(user)
+
+def user_exist_login(username,password):
     #find user by password so they can login
-    return User.user_exist(password)
+    return User.user_exist(username,password)
 
 def create_account_credential(account,username,email,password):
     #function to create new credentials object
@@ -42,4 +46,50 @@ def tocopy_password(account):
     #copy password to clipboard
     return Credentials.copy_password(account)
 
-  
+#MAIN function
+def main():
+    print('Hello! Welcome to Lock-n-Key. \n Do you have an account?  enter y or n')
+    have_account=input().lower()
+
+    if have_account=='n':
+        print('New Account')
+        print('-' *10)
+
+        print('First name...')
+        f_name=input()
+
+        print('Last name...')
+        l_name=input()
+
+        print('Username...')
+        user_name=input()
+
+        print('Email...')
+        e_address=input()
+
+        print('Phone number...')
+        p_number=input()
+
+        print('Password...')
+        passwrd=input() 
+
+        save_user(create_user(f_name,l_name,user_name,passwrd,e_address,p_number))
+
+        print('\n')
+
+    elif have_account=='y':
+        print('Please enter your username and password')
+        print('-'*10)
+        print('Username...')
+        user_name=input()
+        print('\n')
+        print('Password...')
+        passwrd=input()
+        print('\n')
+
+        if user_exist_login(user_name,passwrd):
+            print()
+            create_account_credential(account,username,email,password)
+
+
+
