@@ -33,4 +33,8 @@ def existing_credential(account):
     #check if a credential exists 
     return Credentials.credential_exists(account)
 
- 
+def displays_credentials():
+    #returns all saved credentials
+    return Credentials.display_credentials()
+
+    
