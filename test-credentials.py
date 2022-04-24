@@ -13,5 +13,12 @@ class TestCredentials(unittest.TestCase):
         Credentials.credentials_list=[]
         print('teardown successful')
 
-        
+    def test_init(self):
+        #test if object is initialized properly
+        self.assertEqual(self.new_credential.account,'twitter')
+        self.assertEqual(self.new_credential.username,'tori-bot')
+        self.assertEqual(self.new_credential.email,'tori.bot@gmail.com')
+        self.assertEqual(self.new_credential.password,'qwerty')
+
+
         
