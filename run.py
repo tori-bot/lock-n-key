@@ -28,4 +28,9 @@ def del_credential(credential):
 def find_credential(account):
     #search for credential using account name
     return Credentials.find_by_account(account)  
-      
+
+def existing_credential(account):
+    #check if a credential exists 
+    return Credentials.credential_exists(account)
+
+ 
