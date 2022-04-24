@@ -145,6 +145,17 @@ def main():
                 else:
                     print('Account does not exist')
 
+            elif short_code=='del':
+                print('Enter the account name you want to delete')
+                delete_account=input()
+
+                if existing_credential(delete_account):
+                    del_account=find_credential(delete_account)
+                    del_credential(del_account)
+                    print(f'{del_account.account} credentials for {del_account.username} deleted successfully.')
+                else:
+                    print('The account credential does not exist')
+
             elif
 
 
