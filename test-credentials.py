@@ -65,6 +65,13 @@ class TestCredentials(unittest.TestCase):
         #test if list of all saved credentials is returned
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
+    def test_copy_password(self):
+        #check that we are copying password from found credential to clipboard
+        self.new_credential.save_credential()
+        Credentials.copy_password('twitter')
+
+        self.assertEqual(self.new_credential.password,pyperclip.paste())
+
 
 
 
