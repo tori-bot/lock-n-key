@@ -46,13 +46,4 @@ class Credentials:
         account_found=Credentials.find_by_account(account)
         pyperclip.copy(account_found.password)
 
-    # def generate_password(self):
-    #     #function to generate password for a credential
-    #     characters=string.ascii_letters+string.punctuation+string.digits
-    #     print('enter length of password')
-    #     min_length=input()
-    #     max_length=min_length
-    #     random_password="".join(choice(characters) for x in range(random.randint(min_length,max_length)))
-
-    #     self.password.save_
-       
+    
