@@ -25,6 +25,7 @@ class Credentials:
         '''find credential by account from list'''
         for credential in cls.credentials_list:
             if credential.account==account:
+        
                 return credential
 
     @classmethod
@@ -43,7 +44,9 @@ class Credentials:
     @classmethod
     def copy_password(cls,account):
         '''copy password to clipboard using pyperclip'''
-        account_found=Credentials.find_by_account(account)
+        
+        account_found=cls.find_by_account(account)
+
         pyperclip.copy(account_found.password)
 
     

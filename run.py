@@ -56,7 +56,7 @@ def main():
             print(f'Login successful! Welcome {user_name} ')
             print('-'*20)
             
-            print('Please use these short-codes:\n ac -add new credential \n fc - find credential by account \n dc -display all saved credentials\n del -delete a credential\n ex -exit' )
+            print('Please use these short-codes:\n ac -add new credential \n fc - find credential by account \n dc -display all saved credentials\n del -delete a credential\n cp -copy password to cliboard \n ex -exit' )
             
             short_code=input().lower()
 
@@ -140,12 +140,14 @@ def main():
                 if existing_credential(copy_account):
                     print('account exists')
                     copy_passwd=find_credential(copy_account)
-                    tocopy_password(copy_passwd)
+                    
+                    tocopy_password(copy_passwd.account)
 
                     print(f'The password for {copy_passwd.account} has been copied to clipboard ')
 
                 else:
                     print('Credential not found.')
+                    
 
             elif short_code=='ex':
                 print(f'Bye {user_name}... ')
