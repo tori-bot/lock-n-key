@@ -24,7 +24,16 @@ class TestCredentials(unittest.TestCase):
         #test if credential is saved in list
         self.new_credential.save_credential()
         self.assertEqual(len(Credentials.credentials_list),1)
+
+    def test_save_multiple_credentials(self):
+        #check if more than one credential can be saved in the list
+        self.new_credential.save_credential()
+        test_credential=Credentials('instagram','joyous-cat','joy@cat.com','mnbvcxz')
+        test_credential.save_credential()
         
+        self.assertEqual(len(Credentials.credentials_list),2)
+
+
 
 
 if __name__=='__main__' :
