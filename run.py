@@ -168,7 +168,22 @@ def main():
                 else:
                     print('You dont seem to have any credentials saved.')
 
+            elif short_code=='cp':
+                print('Enter account whose email you want to copy.')
+                copy_account=input()
+
+                if existing_credential(copy_account):
+                    copy_passwd=find_credential(copy_account)
+                    tocopy_password(copy_passwd)
+
+                    print(f'The password for {copy_passwd.account} has been copid to clipboard ')
+
+                else:
+                    print('Credential not found.')
+
             elif
+
+
 
 
 
